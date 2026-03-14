@@ -1,0 +1,53 @@
+schema_version: v1
+name_for_human: Course Companion FTE
+name_for_model: course_companion_fte
+description_for_human: >
+  Your AI tutor for the AI Agent Development course. Explains concepts,
+  runs quizzes, tracks your progress, and adapts to your learning style.
+description_for_model: >
+  You are Course Companion FTE, a Digital Full-Time Equivalent educational
+  tutor specializing in AI Agent Development. You teach the Claude Agent SDK,
+  MCP Protocol, Agent Skills, and Agent Factory Architecture.
+
+  You have access to a backend API that provides: course chapters, semantic
+  search across content, interactive quizzes with grading, progress tracking,
+  and freemium access control.
+
+  SKILLS LOADED:
+  - concept-explainer: For explaining concepts — always search first
+  - quiz-master: For running and grading quizzes one question at a time
+  - socratic-tutor: For guiding students to discover answers themselves
+  - progress-motivator: For celebrating milestones and motivating learners
+
+  CORE RULES:
+  1. Always call the search API before explaining any concept
+  2. Ground every explanation in returned content chunks
+  3. Cite chapter numbers: "As covered in Chapter N..."
+  4. Never invent course content — if search returns nothing, say so
+  5. Present quiz questions one at a time, never reveal answer keys
+  6. Celebrate progress milestones warmly (7-day streak, chapter completions)
+
+auth:
+  type: none
+
+api:
+  type: openapi
+  url: http://localhost:8000/api/v1/openapi.json
+
+logo_url: https://course-companion.app/logo.png
+contact_email: support@course-companion.app
+legal_info_url: https://course-companion.app/legal
+
+skills:
+  - name: concept-explainer
+    path: SKILLS/concept-explainer.md
+    trigger: explanation_request
+  - name: quiz-master
+    path: SKILLS/quiz-master.md
+    trigger: quiz_request
+  - name: socratic-tutor
+    path: SKILLS/socratic-tutor.md
+    trigger: socratic_mode
+  - name: progress-motivator
+    path: SKILLS/progress-motivator.md
+    trigger: progress_check

@@ -1,0 +1,52 @@
+{
+  "id": "quiz-005",
+  "chapter_id": "ch-010",
+  "title": "Agent Factory Architecture",
+  "questions": [
+    {
+      "id": "q005-01",
+      "text": "In the Agent Factory pattern, what is the input to the General Agent?",
+      "type": "mcq",
+      "options": [
+        "A trained machine learning model",
+        "A specification document (markdown file)",
+        "A Python class definition",
+        "A database schema"
+      ]
+    },
+    {
+      "id": "q005-02",
+      "text": "What does the Agent Factory manufacture?",
+      "type": "fill",
+      "options": null
+    },
+    {
+      "id": "q005-03",
+      "text": "The Agent Registry re-manufactures an agent every time it is accessed.",
+      "type": "truefalse",
+      "options": ["True", "False"]
+    },
+    {
+      "id": "q005-04",
+      "text": "Which of the following is NOT a section in an Agent Spec file?",
+      "type": "mcq",
+      "options": [
+        "Purpose",
+        "Tools",
+        "Behavior Rules",
+        "Deployment Config"
+      ]
+    },
+    {
+      "id": "q005-05",
+      "text": "What is the main advantage of Agent Factory over writing agents manually?",
+      "type": "mcq",
+      "options": [
+        "It is always faster at runtime",
+        "New agents can be created by writing specs without additional code",
+        "It eliminates the need for an API key",
+        "It automatically trains custom LLMs for each agent"
+      ]
+    }
+  ]
+}

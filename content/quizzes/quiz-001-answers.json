@@ -1,0 +1,10 @@
+{
+  "quiz_id": "quiz-001",
+  "answers": {
+    "q001-01": "An AI agent wraps an LLM with perception, reasoning, and action capabilities",
+    "q001-02": "Perception, Reasoning, Action",
+    "q001-03": "True",
+    "q001-04": "168",
+    "q001-05": "It reads a specification document and creates a Custom Agent"
+  }
+}

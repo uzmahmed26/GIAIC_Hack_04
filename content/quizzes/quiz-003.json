@@ -1,0 +1,52 @@
+{
+  "id": "quiz-003",
+  "chapter_id": "ch-003",
+  "title": "MCP Protocol Deep Dive",
+  "questions": [
+    {
+      "id": "q003-01",
+      "text": "What does MCP stand for?",
+      "type": "fill",
+      "options": null
+    },
+    {
+      "id": "q003-02",
+      "text": "Which component exposes tools that an agent can call?",
+      "type": "mcq",
+      "options": [
+        "MCP Client",
+        "MCP Server",
+        "MCP Router",
+        "MCP Gateway"
+      ]
+    },
+    {
+      "id": "q003-03",
+      "text": "MCP servers are used in Phase 1 of the Course Companion project.",
+      "type": "truefalse",
+      "options": ["True", "False"]
+    },
+    {
+      "id": "q003-04",
+      "text": "Which MCP server is used for direct PostgreSQL queries in Phase 3?",
+      "type": "mcq",
+      "options": [
+        "filesystem",
+        "fetch",
+        "postgres",
+        "database"
+      ]
+    },
+    {
+      "id": "q003-05",
+      "text": "How are MCP servers started in this project?",
+      "type": "mcq",
+      "options": [
+        "pip install mcp-server",
+        "python manage.py runserver",
+        "npx with the server package name",
+        "docker-compose up"
+      ]
+    }
+  ]
+}

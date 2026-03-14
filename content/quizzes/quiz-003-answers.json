@@ -1,0 +1,10 @@
+{
+  "quiz_id": "quiz-003",
+  "answers": {
+    "q003-01": "Model Context Protocol",
+    "q003-02": "MCP Server",
+    "q003-03": "False",
+    "q003-04": "postgres",
+    "q003-05": "npx with the server package name"
+  }
+}

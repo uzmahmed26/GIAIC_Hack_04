@@ -1,0 +1,47 @@
+{
+  "id": "quiz-004",
+  "chapter_id": "ch-005",
+  "title": "Tool Use and Function Calling",
+  "questions": [
+    {
+      "id": "q004-01",
+      "text": "What stop_reason indicates Claude wants to call a tool?",
+      "type": "fill",
+      "options": null
+    },
+    {
+      "id": "q004-02",
+      "text": "When Claude calls a tool, which role must the tool result be sent back as?",
+      "type": "mcq",
+      "options": [
+        "assistant",
+        "system",
+        "user",
+        "tool"
+      ]
+    },
+    {
+      "id": "q004-03",
+      "text": "Claude executes the tool function directly when it decides to call a tool.",
+      "type": "truefalse",
+      "options": ["True", "False"]
+    },
+    {
+      "id": "q004-04",
+      "text": "Which three fields are required in a tool definition?",
+      "type": "mcq",
+      "options": [
+        "id, type, handler",
+        "name, description, input_schema",
+        "function, parameters, returns",
+        "tool_id, prompt, output_format"
+      ]
+    },
+    {
+      "id": "q004-05",
+      "text": "The agentic loop continues until stop_reason equals what value?",
+      "type": "fill",
+      "options": null
+    }
+  ]
+}

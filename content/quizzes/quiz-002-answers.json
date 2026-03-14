@@ -1,0 +1,10 @@
+{
+  "quiz_id": "quiz-002",
+  "answers": {
+    "q002-01": "anthropic",
+    "q002-02": "system",
+    "q002-03": "False",
+    "q002-04": "response.usage",
+    "q002-05": "4 characters"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "quiz_id": "quiz-004",
+  "answers": {
+    "q004-01": "tool_use",
+    "q004-02": "user",
+    "q004-03": "False",
+    "q004-04": "name, description, input_schema",
+    "q004-05": "end_turn"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "quiz-001",
+  "chapter_id": "ch-001",
+  "title": "Introduction to AI Agents",
+  "questions": [
+    {
+      "id": "q001-01",
+      "text": "What is the primary difference between an LLM and an AI agent?",
+      "type": "mcq",
+      "options": [
+        "An LLM is faster than an AI agent",
+        "An AI agent wraps an LLM with perception, reasoning, and action capabilities",
+        "An LLM can use tools but an AI agent cannot",
+        "AI agents only work with text, LLMs can work with images"
+      ]
+    },
+    {
+      "id": "q001-02",
+      "text": "Which of the following correctly lists the three core components of an AI agent?",
+      "type": "mcq",
+      "options": [
+        "Input, Processing, Output",
+        "Training, Inference, Deployment",
+        "Perception, Reasoning, Action",
+        "Memory, Computation, Storage"
+      ]
+    },
+    {
+      "id": "q001-03",
+      "text": "An AI agent runs in a loop until its goal is achieved.",
+      "type": "truefalse",
+      "options": ["True", "False"]
+    },
+    {
+      "id": "q001-04",
+      "text": "How many hours per week does a Digital FTE operate?",
+      "type": "fill",
+      "options": null
+    },
+    {
+      "id": "q001-05",
+      "text": "In the Agent Factory architecture, what does the General Agent do?",
+      "type": "mcq",
+      "options": [
+        "It trains new LLM models from scratch",
+        "It reads a specification document and creates a Custom Agent",
+        "It manages database connections for all agents",
+        "It handles user authentication and authorization"
+      ]
+    }
+  ]
+}
