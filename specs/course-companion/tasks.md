@@ -214,14 +214,42 @@
 
 ---
 
-## Phase 2: Hybrid Intelligence (PENDING)
+## Phase 2: Hybrid Intelligence
 
-- [ ] TASK-051: User tier middleware (phase2/backend/middleware/tier_check.py)
-- [ ] TASK-052: Cost tracking service (phase2/backend/services/cost_tracker.py)
-- [ ] TASK-053: Adaptive path router (FEAT-07) — Pro/Team only
-- [ ] TASK-054: LLM assessment router (FEAT-08) — Pro/Team only
-- [ ] TASK-055: MCP integration for filesystem and fetch servers
-- [ ] TASK-056: Phase 2 audit (Phase 1 still zero LLM, free user gets 403)
+### TASK-051: Create phase2/backend/app/middleware/tier_check.py
+- [X] require_tier() FastAPI dependency
+- [X] TIER_HIERARCHY dict
+- [X] 403 raised BEFORE any LLM call for ineligible tiers
+
+### TASK-052: Create phase2/backend/app/services/cost_tracker.py
+- [X] log_llm_cost() async function
+- [X] Writes to cost_logs table after every LLM call
+
+### TASK-053: Create phase2/backend/app/routers/adaptive.py (FEAT-07)
+- [X] POST / endpoint — Pro/Team only
+- [X] Tier check via require_tier(["pro", "team"]) BEFORE API call
+- [X] Cost logged via log_llm_cost() AFTER API call
+- [X] Claude Sonnet, JSON response format
+
+### TASK-054: Create phase2/backend/app/routers/assessment.py (FEAT-08)
+- [X] POST / endpoint — Pro/Team only
+- [X] Tier check via require_tier(["pro", "team"]) BEFORE API call
+- [X] Cost logged via log_llm_cost() AFTER API call
+- [X] Rubric-based grading: conceptual_accuracy, completeness, practical_understanding
+
+### TASK-055: Create phase2/backend/app/main.py
+- [X] FastAPI app with 2 premium routers
+- [X] /api/v2/premium/adaptive-path and /api/v2/premium/assess prefixes
+- [X] /health endpoint
+
+### TASK-056: Create phase2/backend/migrations/006_create_cost_logs.sql
+- [X] cost_logs table with indexes on user_id, feature, created_at
+
+### TASK-057: Create phase2/backend/app/core/config.py
+- [X] Settings with ANTHROPIC_API_KEY added
+
+- [ ] TASK-058: MCP integration for filesystem and fetch servers
+- [ ] TASK-059: Phase 2 audit (Phase 1 still zero LLM, free user gets 403)
 
 ---
 
