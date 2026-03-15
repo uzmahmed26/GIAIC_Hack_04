@@ -248,20 +248,66 @@
 ### TASK-057: Create phase2/backend/app/core/config.py
 - [X] Settings with ANTHROPIC_API_KEY added
 
-- [ ] TASK-058: MCP integration for filesystem and fetch servers
-- [ ] TASK-059: Phase 2 audit (Phase 1 still zero LLM, free user gets 403)
+### TASK-058: Create phase2/backend/app/services/mcp_service.py
+- [X] read_chapter_via_mcp() with filesystem MCP + fallback
+- [X] fetch_r2_content() with fetch MCP + fallback
+- [X] list_content_files() with filesystem MCP + fallback
+
+### TASK-059: Create scripts/audit_phase2.ps1
+- [X] 4-check audit: Phase 1 zero LLM, Phase 2 LLM present, require_tier in all routers, log_llm_cost in all routers
 
 ---
 
-## Phase 3: Full Web App (PENDING)
+## Phase 3: Full Web App
 
-- [ ] TASK-057: Next.js 14 + TypeScript + TailwindCSS + shadcn/ui setup
-- [ ] TASK-058: Clerk authentication integration
-- [ ] TASK-059: Landing page with pricing tiers
-- [ ] TASK-060: Dashboard page with progress overview
-- [ ] TASK-061: Chapter reader page (/learn/[chapterId])
-- [ ] TASK-062: Quiz interface page (/quiz/[quizId])
-- [ ] TASK-063: Progress tracker page with streak display
-- [ ] TASK-064: Premium upgrade page
-- [ ] TASK-065: Consolidated Phase 3 backend
-- [ ] TASK-066: Fly.io deployment + Vercel deployment
+### TASK-060: Frontend project setup
+- [X] package.json (Next.js 14, Clerk, Tailwind, TypeScript)
+- [X] next.config.ts, tailwind.config.ts, tsconfig.json
+- [X] .env.local.example
+
+### TASK-061: Clerk auth middleware
+- [X] middleware.ts — public routes: /, /sign-in, /sign-up, /premium
+- [X] lib/api.ts — typed API client with Clerk JWT
+
+### TASK-062: App layout + global CSS
+- [X] app/layout.tsx — ClerkProvider root
+- [X] app/globals.css — Tailwind base + component utilities
+
+### TASK-063: Landing page (/)
+- [X] Hero section with sign-up CTA
+- [X] Features section (3 cards)
+- [X] Pricing section (4 tiers: free, premium, pro, team)
+
+### TASK-064: Dashboard page (/dashboard)
+- [X] Stats row (chapters done, avg score, streak, last active)
+- [X] Progress bar
+- [X] Chapter list with start/review links
+
+### TASK-065: Chapter reader (/learn/[chapterId])
+- [X] Access gate (redirects to /premium if denied)
+- [X] Full chapter content display
+- [X] Mark complete button (calls PUT /api/v1/progress)
+- [X] Previous/Next navigation
+
+### TASK-066: Quiz page (/quiz/[quizId])
+- [X] One question at a time with progress bar
+- [X] MCQ, True/False, Fill-in-blank support
+- [X] Submit + results view with per-question feedback
+
+### TASK-067: Progress page (/progress)
+- [X] Streak card with flame and milestone badge
+- [X] Course completion progress bar
+- [X] Chapter-by-chapter score breakdown
+
+### TASK-068: Premium upgrade page (/premium)
+- [X] 3 plan cards (Premium, Pro, Team) with feature comparison
+- [X] Clerk SignUpButton on each plan
+
+### TASK-069: Phase 3 consolidated backend
+- [X] phase3/backend/main.py — merges Phase 1 + Phase 2 routers
+- [X] phase3/backend/requirements.txt
+
+### TASK-070: Deployment config
+- [X] phase1/backend/Dockerfile
+- [X] phase1/backend/fly.toml
+- [X] phase3/frontend/vercel.json
