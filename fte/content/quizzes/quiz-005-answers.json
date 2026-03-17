@@ -1,0 +1,10 @@
+{
+  "quiz_id": "quiz-005",
+  "answers": {
+    "q005-01": "A specification document (markdown file)",
+    "q005-02": "a system prompt for a Custom Agent",
+    "q005-03": "False",
+    "q005-04": "Deployment Config",
+    "q005-05": "New agents can be created by writing specs without additional code"
+  }
+}

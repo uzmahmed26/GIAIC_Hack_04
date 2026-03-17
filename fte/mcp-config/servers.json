@@ -1,0 +1,56 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "./content",
+        "./SKILLS"
+      ],
+      "description": "Read and write course content files and skill files",
+      "phase": "2 and 3",
+      "use_cases": [
+        "Read chapter markdown files from content/chapters/",
+        "Read quiz JSON files from content/quizzes/",
+        "Read skill files from SKILLS/",
+        "Write new content files during admin operations"
+      ]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "description": "Fetch content from Cloudflare R2 URLs and external sources",
+      "phase": "2 and 3",
+      "use_cases": [
+        "Retrieve chapter content from R2 bucket URLs",
+        "Fetch media assets for course chapters",
+        "Download quiz bank updates from R2"
+      ]
+    },
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${DATABASE_URL}"
+      ],
+      "description": "Direct PostgreSQL queries for admin and analytics",
+      "phase": "3 only",
+      "use_cases": [
+        "Admin dashboard queries",
+        "Analytics aggregations",
+        "Progress reporting across all users",
+        "Cost tracking queries"
+      ]
+    }
+  },
+  "rules": {
+    "phase1": "NO MCP servers allowed in phase1/",
+    "phase2": "filesystem and fetch MCP servers only",
+    "phase3": "all MCP servers allowed"
+  }
+}

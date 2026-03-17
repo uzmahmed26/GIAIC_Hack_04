@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-cyan: #00f5ff;
+    --neon-purple: #bf00ff;
+    --neon-pink: #ff006e;
+    --neon-green: #00ff88;
+  }
+  body {
+    @apply bg-gray-950 text-white antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative bg-transparent border border-neon-cyan text-neon-cyan font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 hover:bg-neon-cyan hover:text-gray-950 hover:shadow-neon-cyan;
+  }
+  .btn-secondary {
+    @apply border border-gray-600 hover:border-gray-400 text-gray-300 font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 hover:text-white;
+  }
+  .btn-neon-purple {
+    @apply relative bg-transparent border border-neon-purple text-neon-purple font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 hover:bg-neon-purple hover:text-white hover:shadow-neon-purple;
+  }
+  .card {
+    @apply bg-gray-900 border border-gray-800 rounded-xl p-6 transition-all duration-300 hover:border-neon-cyan/30 hover:shadow-neon-cyan/10;
+  }
+  .card-glow {
+    @apply bg-gray-900/80 backdrop-blur-sm border border-neon-cyan/20 rounded-xl p-6 shadow-neon-cyan/5;
+  }
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-purple;
+  }
+  .neon-badge {
+    @apply inline-block border border-neon-cyan/50 text-neon-cyan text-xs font-semibold px-3 py-1 rounded-full bg-neon-cyan/10;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-extrabold text-white;
+  }
+}

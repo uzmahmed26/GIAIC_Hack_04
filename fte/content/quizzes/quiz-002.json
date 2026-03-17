@@ -1,0 +1,52 @@
+{
+  "id": "quiz-002",
+  "chapter_id": "ch-002",
+  "title": "Claude Agent SDK Basics",
+  "questions": [
+    {
+      "id": "q002-01",
+      "text": "What pip package name is used to install the Claude Agent SDK?",
+      "type": "fill",
+      "options": null
+    },
+    {
+      "id": "q002-02",
+      "text": "Which message role defines Claude's identity and behavior?",
+      "type": "mcq",
+      "options": [
+        "user",
+        "assistant",
+        "system",
+        "claude"
+      ]
+    },
+    {
+      "id": "q002-03",
+      "text": "To maintain a multi-turn conversation, you must send only the latest message on each API call.",
+      "type": "truefalse",
+      "options": ["True", "False"]
+    },
+    {
+      "id": "q002-04",
+      "text": "Which response attribute tells you how many tokens were used in a Claude API call?",
+      "type": "mcq",
+      "options": [
+        "response.tokens",
+        "response.usage",
+        "response.cost",
+        "response.metadata"
+      ]
+    },
+    {
+      "id": "q002-05",
+      "text": "Approximately how many characters equal one token in Claude's tokenization?",
+      "type": "mcq",
+      "options": [
+        "1 character",
+        "2 characters",
+        "4 characters",
+        "10 characters"
+      ]
+    }
+  ]
+}

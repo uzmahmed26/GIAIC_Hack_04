@@ -1,0 +1,339 @@
+openapi: "3.0.3"
+info:
+  title: Course Companion FTE — Phase 1 API
+  version: "1.0.0"
+  description: >
+    Zero-LLM backend for Course Companion FTE.
+    All endpoints return structured data only.
+    No LLM calls are made in this phase.
+
+servers:
+  - url: http://localhost:8000
+    description: Local development
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ChapterSummary:
+      type: object
+      properties:
+        id: { type: string, example: "ch-001" }
+        title: { type: string }
+        chapter_order: { type: integer }
+        tier_required: { type: string, enum: [free, premium, pro] }
+        estimated_minutes: { type: integer }
+        prerequisites: { type: array, items: { type: string } }
+
+    ChapterDetail:
+      allOf:
+        - $ref: "#/components/schemas/ChapterSummary"
+        - type: object
+          properties:
+            content: { type: string, description: "Markdown body" }
+            content_url: { type: string, description: "Cloudflare R2 URL" }
+
+    SearchChunk:
+      type: object
+      properties:
+        chapter_id: { type: string }
+        chapter_title: { type: string }
+        chunk: { type: string }
+        relevance_score: { type: number }
+
+    Question:
+      type: object
+      properties:
+        id: { type: string }
+        text: { type: string }
+        type: { type: string, enum: [mcq, truefalse, fill] }
+        options: { type: array, items: { type: string }, nullable: true }
+
+    Quiz:
+      type: object
+      properties:
+        id: { type: string }
+        chapter_id: { type: string }
+        title: { type: string }
+        questions:
+          type: array
+          items: { $ref: "#/components/schemas/Question" }
+
+    QuizResult:
+      type: object
+      properties:
+        score: { type: number, description: "0.0 to 100.0" }
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              question_id: { type: string }
+              correct: { type: boolean }
+              student_answer: { type: string }
+
+    UserProgress:
+      type: object
+      properties:
+        user_id: { type: string }
+        chapter_id: { type: string }
+        completed: { type: boolean }
+        score: { type: number, nullable: true }
+        completed_at: { type: string, format: date-time, nullable: true }
+        streak_days: { type: integer }
+        last_active: { type: string, format: date-time }
+
+    StreakInfo:
+      type: object
+      properties:
+        user_id: { type: string }
+        streak_days: { type: integer }
+        last_active: { type: string, format: date-time }
+
+    AccessResult:
+      type: object
+      properties:
+        allowed: { type: boolean }
+        reason: { type: string }
+        upgrade_url: { type: string }
+        tier: { type: string }
+
+paths:
+  /api/v1/chapters:
+    get:
+      summary: List all chapters
+      description: Returns chapter summaries. Content and embedding fields excluded.
+      responses:
+        "200":
+          description: List of chapter summaries
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/ChapterSummary" }
+
+  /api/v1/chapters/{chapter_id}:
+    get:
+      summary: Get full chapter content
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Full chapter with markdown content
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ChapterDetail" }
+        "404":
+          description: Chapter not found
+
+  /api/v1/chapters/{chapter_id}/next:
+    get:
+      summary: Get next chapter
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Next chapter summary
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ChapterSummary" }
+        "404":
+          description: No next chapter
+
+  /api/v1/chapters/{chapter_id}/previous:
+    get:
+      summary: Get previous chapter
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Previous chapter summary
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ChapterSummary" }
+        "404":
+          description: No previous chapter
+
+  /api/v1/search:
+    get:
+      summary: Semantic search over course content
+      description: Uses pre-computed pgvector embeddings. Zero LLM calls.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema: { type: string }
+        - name: chapter
+          in: query
+          required: false
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          schema: { type: integer, minimum: 1, maximum: 10, default: 3 }
+      responses:
+        "200":
+          description: Ranked content chunks
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/SearchChunk" }
+
+  /api/v1/quizzes/{quiz_id}:
+    get:
+      summary: Get quiz questions (NO answer key)
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: quiz_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Quiz with questions only — answer key never included
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Quiz" }
+        "401":
+          description: Unauthorized
+
+  /api/v1/quizzes/{quiz_id}/submit:
+    post:
+      summary: Submit quiz answers for server-side grading
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: quiz_id
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                answers:
+                  type: object
+                  additionalProperties: { type: string }
+                  description: "{ question_id: student_answer }"
+      responses:
+        "200":
+          description: Grading result — answer key never in response
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/QuizResult" }
+        "401":
+          description: Unauthorized
+        "409":
+          description: Quiz already submitted
+
+  /api/v1/progress/{user_id}:
+    get:
+      summary: Get full user progress
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: All progress records for user
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/UserProgress" }
+        "401":
+          description: Unauthorized
+
+  /api/v1/progress/{user_id}/chapter/{chapter_id}:
+    put:
+      summary: Mark chapter as completed
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema: { type: string }
+        - name: chapter_id
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                score: { type: number, nullable: true }
+      responses:
+        "200":
+          description: Updated progress record
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/UserProgress" }
+        "401":
+          description: Unauthorized
+
+  /api/v1/progress/{user_id}/streak:
+    get:
+      summary: Get current streak
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Streak information
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/StreakInfo" }
+        "401":
+          description: Unauthorized
+
+  /api/v1/access/{user_id}/chapter/{chapter_id}:
+    get:
+      summary: Check chapter access for user tier
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema: { type: string }
+        - name: chapter_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Access decision
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/AccessResult" }
+        "401":
+          description: Unauthorized

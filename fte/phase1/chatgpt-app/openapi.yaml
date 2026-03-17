@@ -1,0 +1,503 @@
+openapi: 3.1.0
+info:
+  title: Course Companion FTE — Phase 1 API
+  description: >
+    Deterministic educational API for AI Agent Development course.
+    Zero LLM calls — all AI reasoning happens in the ChatGPT App layer.
+  version: 1.0.0
+  contact:
+    email: support@course-companion.app
+
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local development
+  - url: https://course-companion-api.fly.dev/api/v1
+    description: Production (Fly.io)
+
+paths:
+  /chapters:
+    get:
+      operationId: listChapters
+      summary: List all course chapters
+      description: Returns all chapters with metadata. Content field is omitted for efficiency.
+      parameters:
+        - name: tier
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [free, premium, pro, team]
+          description: Filter chapters by minimum tier required
+      responses:
+        "200":
+          description: List of chapters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  chapters:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ChapterListItem"
+                  total:
+                    type: integer
+
+  /chapters/{chapter_id}:
+    get:
+      operationId: getChapter
+      summary: Get full chapter content
+      description: Returns the complete chapter including markdown content.
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: ch-001
+      responses:
+        "200":
+          description: Full chapter content
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Chapter"
+        "404":
+          description: Chapter not found
+
+  /chapters/{chapter_id}/next:
+    get:
+      operationId: getNextChapter
+      summary: Get the next chapter
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Next chapter or null if at end
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  chapter:
+                    oneOf:
+                      - $ref: "#/components/schemas/ChapterListItem"
+                      - type: "null"
+
+  /chapters/{chapter_id}/previous:
+    get:
+      operationId: getPreviousChapter
+      summary: Get the previous chapter
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Previous chapter or null if at start
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  chapter:
+                    oneOf:
+                      - $ref: "#/components/schemas/ChapterListItem"
+                      - type: "null"
+
+  /search:
+    get:
+      operationId: searchContent
+      summary: Semantic search across course content
+      description: >
+        Searches pre-computed embeddings using cosine similarity.
+        Always call this before explaining any concept.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Search query
+        - name: chapter
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Limit search to a specific chapter ID
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 10
+            default: 3
+      responses:
+        "200":
+          description: Relevant content chunks
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchResponse"
+
+  /quizzes/{quiz_id}:
+    get:
+      operationId: getQuiz
+      summary: Get quiz questions (no answer key)
+      description: Returns quiz questions only. Answer key is never included.
+      parameters:
+        - name: quiz_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: quiz-001
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Quiz questions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizResponse"
+        "404":
+          description: Quiz not found
+
+  /quizzes/{quiz_id}/submit:
+    post:
+      operationId: submitQuiz
+      summary: Submit quiz answers for grading
+      description: >
+        Grades student answers against the server-side answer key using
+        exact string comparison. Answer key is never returned in response.
+      parameters:
+        - name: quiz_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuizSubmission"
+      responses:
+        "200":
+          description: Graded quiz result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuizResult"
+        "404":
+          description: Quiz not found
+
+  /progress/{user_id}:
+    get:
+      operationId: getUserProgress
+      summary: Get user's full progress summary
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Complete progress summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProgressResponse"
+
+  /progress/{user_id}/chapter/{chapter_id}:
+    put:
+      operationId: updateChapterProgress
+      summary: Update progress for a specific chapter
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgressUpdate"
+      responses:
+        "200":
+          description: Updated progress record
+
+  /progress/{user_id}/streak:
+    get:
+      operationId: getUserStreak
+      summary: Get user's current learning streak
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Current streak and milestone
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StreakResponse"
+
+  /access/{user_id}/chapter/{chapter_id}:
+    get:
+      operationId: checkChapterAccess
+      summary: Check if user can access a chapter
+      description: Returns access decision based on user tier and chapter requirements.
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+      security:
+        - BearerAuth: []
+      responses:
+        "200":
+          description: Access decision
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessCheckResponse"
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ChapterListItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: ch-001
+        title:
+          type: string
+        order:
+          type: integer
+        tier_required:
+          type: string
+          enum: [free, premium, pro]
+        estimated_minutes:
+          type: integer
+        prerequisites:
+          type: array
+          items:
+            type: string
+
+    Chapter:
+      allOf:
+        - $ref: "#/components/schemas/ChapterListItem"
+        - type: object
+          properties:
+            content:
+              type: string
+              description: Full markdown content of the chapter
+
+    SearchResult:
+      type: object
+      properties:
+        chapter_id:
+          type: string
+        chunk:
+          type: string
+        similarity:
+          type: number
+          format: float
+
+    SearchResponse:
+      type: object
+      properties:
+        query:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/SearchResult"
+        total:
+          type: integer
+
+    Question:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        type:
+          type: string
+          enum: [mcq, truefalse, fill]
+        options:
+          type: array
+          items:
+            type: string
+          nullable: true
+
+    QuizResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        chapter_id:
+          type: string
+        title:
+          type: string
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Question"
+
+    QuizSubmission:
+      type: object
+      properties:
+        answers:
+          type: object
+          additionalProperties:
+            type: string
+          description: Map of question_id to student's answer
+
+    QuestionResult:
+      type: object
+      properties:
+        question_id:
+          type: string
+        correct:
+          type: boolean
+        student_answer:
+          type: string
+
+    QuizResult:
+      type: object
+      properties:
+        quiz_id:
+          type: string
+        score:
+          type: number
+          format: float
+        total_questions:
+          type: integer
+        correct_count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/QuestionResult"
+
+    ProgressUpdate:
+      type: object
+      properties:
+        completed:
+          type: boolean
+        score:
+          type: number
+          format: float
+          nullable: true
+
+    ChapterProgress:
+      type: object
+      properties:
+        chapter_id:
+          type: string
+        completed:
+          type: boolean
+        score:
+          type: number
+          nullable: true
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+
+    ProgressResponse:
+      type: object
+      properties:
+        user_id:
+          type: string
+        chapters_completed:
+          type: integer
+        total_chapters:
+          type: integer
+        average_score:
+          type: number
+        streak_days:
+          type: integer
+        last_active:
+          type: string
+          format: date
+        chapter_progress:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChapterProgress"
+
+    StreakResponse:
+      type: object
+      properties:
+        user_id:
+          type: string
+        streak_days:
+          type: integer
+        last_active:
+          type: string
+          format: date
+        milestone_reached:
+          type: string
+          nullable: true
+
+    AccessCheckResponse:
+      type: object
+      properties:
+        user_id:
+          type: string
+        chapter_id:
+          type: string
+        allowed:
+          type: boolean
+        reason:
+          type: string
+        tier:
+          type: string
+        upgrade_url:
+          type: string
+          nullable: true

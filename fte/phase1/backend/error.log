@@ -1,0 +1,376 @@
+INFO:     Started server process [3448]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50662 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50662 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50745 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50745 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50746 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+Database connection error: 403: Not authenticated
+INFO:     127.0.0.1:50760 - "GET /api/v1/access/demo_user/chapter/ch-001 HTTP/1.1" 403 Forbidden
+Database connection error: 404: Chapter not found
+INFO:     127.0.0.1:50774 - "GET /api/v1/chapters/01 HTTP/1.1" 404 Not Found
+Database connection error: 404: Chapter not found
+INFO:     127.0.0.1:50775 - "GET /api/v1/chapters/001 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50780 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51330 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51331 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51332 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51333 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51333 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51333 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51330 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51330 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51336 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51336 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51336 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51336 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51347 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51347 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51348 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+INFO:     127.0.0.1:51349 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51348 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51349 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+INFO:     127.0.0.1:51350 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51361 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51361 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51350 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51403 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+INFO:     127.0.0.1:51402 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51403 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51402 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51454 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51454 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51455 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51455 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51481 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51480 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51480 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51480 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51482 - "OPTIONS /api/v1/access/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/chapter/ch-009 HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/access/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/chapter/ch-009 HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/access/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/chapter/ch-009 HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51487 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51482 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51482 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51487 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51487 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+INFO:     127.0.0.1:51487 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51482 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51487 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+INFO:     127.0.0.1:51488 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51500 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51500 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51488 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51502 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51502 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51508 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51502 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51509 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51512 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51509 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51509 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51558 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51559 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51560 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51561 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51559 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:51559 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:51558 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51558 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61430 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61431 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61432 - "OPTIONS /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61434 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61431 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61512 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61514 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61514 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:61512 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61512 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 
+INFO:     127.0.0.1:61453 - "GET /api/v1/chapters HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 2329, in connect
+    return await connect_utils._connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 991, in _connect
+    conn = await _connect_addr(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 824, in _connect_addr
+    return await __connect_addr(params, False, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 873, in __connect_addr
+    tr, pr = await connector
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\connect_utils.py", line 744, in _create_ssl_connection
+    tr, pr = await loop.create_connection(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1103, in create_connection
+    sock = await self._connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1006, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Python312\Lib\asyncio\proactor_events.py", line 729, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\uvicorn\protocols\http\httptools_impl.py", line 399, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\uvicorn\middleware\proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 269, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 596, in solve_dependencies
+    solved = await solve_generator(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\dependencies\utils.py", line 521, in solve_generator
+    return await stack.enter_async_context(cm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\contextlib.py", line 659, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\Desktop\Hack-04\fte\phase1\backend\app\db.py", line 35, in get_db
+    async with pool.acquire() as conn:
+               ^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\pool.py", line 981, in __aenter__
+    self.connection = await self.pool._acquire(self.timeout)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\pool.py", line 821, in _acquire
+    return await _acquire_impl()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\pool.py", line 806, in _acquire_impl
+    proxy = await ch.acquire()  # type: PoolConnectionProxy
+            ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\pool.py", line 136, in acquire
+    await self.connect()
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\pool.py", line 128, in connect
+    self._con = await self._pool._get_new_connection()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\pool.py", line 502, in _get_new_connection
+    con = await connection.connect(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\asyncpg\connection.py", line 2328, in connect
+    async with compat.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+INFO:     127.0.0.1:61722 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61725 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:61722 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61722 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+INFO:     127.0.0.1:61758 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61759 - "OPTIONS /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61757 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61758 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+JWT verification failed: The specified alg value is not allowed
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61757 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61758 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII/streak HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:61761 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61766 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:61761 - "GET /api/v1/chapters HTTP/1.1" 200 OK
+JWT verification failed: The specified alg value is not allowed
+Database connection error: 401: Invalid or expired token
+INFO:     127.0.0.1:61761 - "GET /api/v1/progress/user_3B4U1WI7q0Oe1AvaRsZmpt8uiII HTTP/1.1" 401 Unauthorized
+Database connection error: 1 validation error for Chapter
+content_url
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/string_type
+INFO:     127.0.0.1:61893 - "GET /api/v1/chapters/ch-001 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\uvicorn\protocols\http\httptools_impl.py", line 399, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\uvicorn\middleware\proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\middleware\exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\starlette\routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\Desktop\Hack-04\fte\phase1\backend\app\routers\chapters.py", line 54, in get_chapter
+    return Chapter(**data)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\laptop world\AppData\Roaming\Python\Python312\site-packages\pydantic\main.py", line 176, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Chapter
+content_url
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.7/v/string_type
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3448]
+
+Aborted!
